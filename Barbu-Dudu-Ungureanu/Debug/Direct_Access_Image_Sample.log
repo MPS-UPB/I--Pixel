@@ -1,0 +1,24 @@
+﻿Build started 17/12/2013 11:57:22 PM.
+     1>Project "D:\Facultate\An 4 - sem 1\Managementul Proiectelor Software\Git\I--Pixel\Barbu-Dudu-Ungureanu\Direct_Access_Image_Sample.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W4 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\Direct_Access_Image_Sample.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W4 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Direct_Access_Image_Sample.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Direct_Access_Image.cpp Direct_Access_Image_Sample.cpp
+         Direct_Access_Image_Sample.cpp
+     1>d:\facultate\an 4 - sem 1\managementul proiectelor software\git\i--pixel\barbu-dudu-ungureanu\direct_access_image_sample.cpp(95): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>d:\facultate\an 4 - sem 1\managementul proiectelor software\git\i--pixel\barbu-dudu-ungureanu\direct_access_image_sample.cpp(116): warning C4244: 'argument' : conversion from 'int' to 'BYTE', possible loss of data
+     1>d:\facultate\an 4 - sem 1\managementul proiectelor software\git\i--pixel\barbu-dudu-ungureanu\direct_access_image_sample.cpp(130): warning C4244: 'argument' : conversion from 'int' to 'BYTE', possible loss of data
+     1>d:\facultate\an 4 - sem 1\managementul proiectelor software\git\i--pixel\barbu-dudu-ungureanu\direct_access_image_sample.cpp(140): warning C4996: 'mkdir': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _mkdir. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\direct.h(140) : see declaration of 'mkdir'
+         Direct_Access_Image.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Facultate\An 4 - sem 1\Managementul Proiectelor Software\Git\I--Pixel\Barbu-Dudu-Ungureanu\Debug\Direct_Access_Image_Sample.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Facultate\An 4 - sem 1\Managementul Proiectelor Software\Git\I--Pixel\Barbu-Dudu-Ungureanu\Debug\Direct_Access_Image_Sample.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Facultate\An 4 - sem 1\Managementul Proiectelor Software\Git\I--Pixel\Barbu-Dudu-Ungureanu\Debug\Direct_Access_Image_Sample.lib" /MACHINE:X86 Debug\Direct_Access_Image.obj
+         Debug\Direct_Access_Image_Sample.obj
+         Debug\stdafx.obj
+         Direct_Access_Image_Sample.vcxproj -> D:\Facultate\An 4 - sem 1\Managementul Proiectelor Software\Git\I--Pixel\Barbu-Dudu-Ungureanu\Debug\Direct_Access_Image_Sample.exe
+     1>Done Building Project "D:\Facultate\An 4 - sem 1\Managementul Proiectelor Software\Git\I--Pixel\Barbu-Dudu-Ungureanu\Direct_Access_Image_Sample.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.74
