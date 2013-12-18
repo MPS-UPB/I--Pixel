@@ -73,8 +73,8 @@ else:
 	pixels = len(img)
 	print "number of pixels = "  + str(pixels)
 
-	# TODO: the path is the current path
-	path_to_bammer = "C:\\Users\\Student\\vbam\\bammerTime.exe"
+	path_to_bammer = os.path.dirname(os.path.abspath(__file__)) + "\\bammerTime.exe"
+	print path_to_bammer
 
 	# timeout of a bam
 	timeout = t1*pixels + t2
@@ -89,13 +89,11 @@ else:
 	bammerTime_args = path_to_input_image
 	for filename in f:
 		if filename.split(".")[1] == "exe" and filename != "bammerTime.exe" and  filename != "vbammerTime.exe":
-			# print filename
-			# TODO: parse the path_to_input_image to get only the name of the file (i.e. "test4")
-			# TODO: pass the name of the final image to bammer
-			path_to_output_image = path_to_output_images + "\\" + filename + "_" + "test4.jpg" + ".TIFF"
-			path_to_output_conf = path_to_output_images + "\\" + filename + "_" + "test4.jpg" + "_conf.TIFF"
+			input_image_name = path_to_input_image.split("\\")[-1]
+			path_to_output_image = path_to_output_images + "\\" + filename + "_" + input_image_name + ".TIFF"
+			path_to_output_conf = path_to_output_images + "\\" + filename + "_" + input_image_name + "_conf.TIFF"
 			result = timeout_command(path_to_bams + "\\" + filename + " " + path_to_input_image + " " + path_to_output_image + " " + path_to_output_conf, timeout)
-			print result
+
 			if result >= 0:
 				bammerTime_args = bammerTime_args + " " + path_to_output_image
 				bammerTime_args = bammerTime_args + " " + path_to_output_conf
