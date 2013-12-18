@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Direct_Access_Image.h"
-#include <direct.h>
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -12,7 +11,7 @@ int _tmain(int argc, _TCHAR* argv[])
     }
 
     //Buffer for the new file names
-    TCHAR strNewFileName[0x100];
+    TCHAR strNeweightForegroundileName[0x100];
 
     //Load and verify that input image is a True-Color one
     KImage *pImage = new KImage(argv[1]);
@@ -48,9 +47,10 @@ int _tmain(int argc, _TCHAR* argv[])
 
 		if (pImageBinary->BeginDirectAccess() && pImageConfidence->BeginDirectAccess())
         {
-			int histData[256];
+			// Calculate histogram
+			int histogram[256];
 			for (int i = 0; i < 256; i++)
-				histData[i] = 0;
+				histogram[i] = 0;
 
 			for (int y = intHeight - 1; y >= 0; y--)
 			{
@@ -58,40 +58,47 @@ int _tmain(int argc, _TCHAR* argv[])
                 {
                     BYTE &PixelAtXY = pDataMatrixGrayscale[y][x];
 					int position = 0xFF & PixelAtXY;
-					histData[position]++;
+					histogram[position]++;
 				}
 			}
 
-			int total = intHeight * intWidth;
+			int total = intHeight * intWidth;							// Total number of pixels
 
 			float sum = 0;
 			for (int i = 0; i < 256; i++)
-				sum += i * histData[i];
+				sum += i * histogram[i];
 
 			float sumB = 0;
-			int wB = 0;
-			int wF = 0;
+			int weightBackground = 0;
+			int weightForeground = 0;
 
 			float varMax = 0;
 			float threshold = 0;
 
 			for (int i = 0; i < 256; i++)
 			{
-				wB += histData[i];
-				if (wB == 0) continue;
+				weightBackground += histogram[i];						// Weight Background
+				if (weightBackground == 0) continue;
 
-				wF = total - wB;
-				if (wF == 0) break;
+				weightForeground = total - weightBackground;			// Weight Foreground
+				if (weightForeground == 0) break;
 
-				sumB += (float)(i * histData[i]);
+				sumB += (float)(i * histogram[i]);
 
-				float mB = sumB / wB;
-				float mF = (sum - sumB) / wF;
-				float varBetween = (float)wB * (float)wF * (mB - mF) * (mB - mF);
+				float meanBackground = sumB / weightBackground;			// Mean Background
+				float meanForeground = (sum - sumB) / weightForeground;	// Mean Foreground
+				
+				// Calculate Between Class Variance
+				float varianceBetween = 
+					(float)weightBackground 
+					* (float)weightForeground 
+					* (meanBackground - meanForeground) 
+					* (meanBackground - meanForeground);
 
-				if (varBetween > varMax)
+				// Check if new maximum found
+				if (varianceBetween > varMax)
 				{
-					varMax = varBetween;
+					varMax = varianceBetween;
 					threshold = i;
 				}
 			}
@@ -104,7 +111,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 					if (PixelAtXY < threshold)
 					{
-                        //...if closer to black, set to black
+                        //	If closer to black, set to black
                         pImageBinary->Put1BPPPixel(x, y, false);
 						if (threshold == 0) 
 						{
@@ -112,13 +119,13 @@ int _tmain(int argc, _TCHAR* argv[])
 						}
 						else
 						{
-							int conf = (int)(255 / threshold * PixelAtXY);
-							pImageConfidence->Put8BPPPixel(x, y, conf);
+							int confidence = (int)(255 / threshold * PixelAtXY);
+							pImageConfidence->Put8BPPPixel(x, y, confidence);
 						}
 					}
                     else
 					{
-                        //...if closer to white, set to white
+                        // If closer to white, set to white
                         pImageBinary->Put1BPPPixel(x, y, true);
 						if (threshold == 255) 
 						{
@@ -126,8 +133,8 @@ int _tmain(int argc, _TCHAR* argv[])
 						}
 						else
 						{
-							int conf = (int)(255 / (255 - threshold) * (PixelAtXY - threshold));
-							pImageConfidence->Put8BPPPixel(x, y, conf);
+							int confidence = (int)(255 / (255 - threshold) * (PixelAtXY - threshold));
+							pImageConfidence->Put8BPPPixel(x, y, confidence);
 						}
 					}
 				}
@@ -137,15 +144,15 @@ int _tmain(int argc, _TCHAR* argv[])
             pImageBinary->EndDirectAccess();
 			pImageConfidence->EndDirectAccess();
 
-			mkdir("./dir_out");
             //Save binarized image
-			_stprintf_s(strNewFileName, sizeof(strNewFileName) / sizeof(TCHAR), _T("./dir_out/%s"), argv[2]);
-            pImageBinary->SaveAs(strNewFileName, SAVE_TIFF_CCITTFAX4);
+			_stprintf_s(strNeweightForegroundileName, sizeof(strNeweightForegroundileName) / sizeof(TCHAR), _T("%s"), argv[2]);
+            pImageBinary->SaveAs(strNeweightForegroundileName, SAVE_TIFF_CCITTFAX4);
 
 			//Save confidence image
-			_stprintf_s(strNewFileName, sizeof(strNewFileName) / sizeof(TCHAR), _T("./dir_out/%s"), argv[3]);
-            pImageConfidence->SaveAs(strNewFileName, SAVE_TIFF_LZW);
+			_stprintf_s(strNeweightForegroundileName, sizeof(strNeweightForegroundileName) / sizeof(TCHAR), _T("%s"), argv[3]);
+            pImageConfidence->SaveAs(strNeweightForegroundileName, SAVE_TIFF_LZW);
 
+			// Delete images
             delete pImageBinary;
 			delete pImageConfidence;
         }
