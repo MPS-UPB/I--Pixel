@@ -1,3 +1,8 @@
+"""vbammerTime.py: Script to run executables in a smart way."""
+
+__author__      = "dbsima"
+__copyright__   = "Copyright 2013, iPixel"
+
 from os import walk, system
 import subprocess
 import sys

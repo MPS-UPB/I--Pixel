@@ -34,3 +34,12 @@ Cuprins
     
  
 5. Continutul Arhivei
+- bammerTime - directory with sources to create the bammerTime.exe
+- bams - directory with some bams
+- images_in - directory with input images
+- images_out - directory with output images
+- libs - directory with libraries
+- requierements - prerequisites (to solve before anything!)
+- vbam_results_examples - some rezults of the vbam
+- bammerTime.exe - exe to do the voting
+- vbamerTime.py - script to run the execubables in a smart way
