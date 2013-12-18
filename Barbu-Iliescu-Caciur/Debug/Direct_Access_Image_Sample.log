@@ -1,0 +1,21 @@
+﻿  stdafx.cpp
+  Direct_Access_Image_Sample.cpp
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(71): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(72): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(89): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(90): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(123): warning C4244: 'return' : conversion from 'double' to 'int', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(135): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(172): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(177): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(184): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(191): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(197): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(202): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(207): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(214): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(222): warning C4244: '=' : conversion from 'double' to 'BYTE', possible loss of data
+c:\users\student\desktop\bambilici\mps_scheletdecod\direct_access_image_sample.cpp(234): warning C4244: 'argument' : conversion from 'int' to 'BYTE', possible loss of data
+  Direct_Access_Image.cpp
+  Generating Code...
+  Direct_Access_Image_Sample.vcxproj -> C:\Users\Student\Desktop\BAMbilici\MPS_ScheletDeCod\Debug\IPixelBAMbilici.exe
