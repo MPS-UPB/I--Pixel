@@ -66,14 +66,14 @@ int _tmain(int argc, _TCHAR* argv[])
             return -3;			
 		}
 		//Save binarized image
-        _stprintf_s(strNewFileName, sizeof(strNewFileName) / sizeof(TCHAR), _T("%s.TIF\0"), argv[2]);
+        _stprintf_s(strNewFileName, sizeof(strNewFileName) / sizeof(TCHAR), _T("%s\0"), argv[2]);
         img_binared->SaveAs(strNewFileName, SAVE_TIFF_CCITTFAX4);
 
 		//Save confidence
 		if( argc == 3)
 			_stprintf_s(strNewFileName, sizeof(strNewFileName) / sizeof(TCHAR), _T("%s_confidence.TIF\0"), argv[2]);
 		else
-			_stprintf_s(strNewFileName, sizeof(strNewFileName) / sizeof(TCHAR), _T("%s.TIF\0"), argv[3]);
+			_stprintf_s(strNewFileName, sizeof(strNewFileName) / sizeof(TCHAR), _T("%s\0"), argv[3]);
 		img_confidence->SaveAs(strNewFileName, SAVE_TIFF_CCITTFAX4);
 
         //Close direct access
